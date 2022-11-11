@@ -13,24 +13,25 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
+import Chat from './Components/Chat';
+
 
 function App() {
 
-  const [online, setOnline] = useState(false);
-  const [user, setUser] = useState("");
+   const [online, setOnline] = useState(false);
+   const [user, setUser] = useState("");
 
-
-  return (
-    <ChakraProvider theme={theme}>
-      <Box bg='black' h='100vh'>
-        <Text bg='#26abff' display='flex' pl='5px' fontSize='40px' fontWeight='bold' fontFamily='sans-serif'>
-              kekw
-        </Text>
-        {!online && (
-        <Login onUser={setUser} onLogin={setOnline}/>
-        )}
-        {online && (
-          <Box>
+   return (
+     <ChakraProvider theme={theme}>
+       <Box bg='black' h='100vh' display='flex' flexFlow='column'>
+         <Text bg='#26abff' display='flex' pl='5px' fontSize='40px' fontWeight='bold' fontFamily='sans-serif'>
+               kekw
+         </Text>
+         {!online && (
+         <Login onUser={setUser} onLogin={setOnline}/>
+         )}
+         {online && (
+         <Box display='flex' flexFlow='column' flexGrow='1'>
           <Box bg='white' display='flex' justifyContent='space-between' alignContent='center' p='3px'>
             <Box display='flex'>
             <Text fontFamily='sans-serif' fontWeight='bold' fontSize='20px'>{user}</Text>
@@ -47,11 +48,15 @@ function App() {
             Log Out
             </Button>
           </Box>
+          <Box flexGrow='1'>
+            <Chat 
+            user = {user}/>
           </Box>
-        )}
-      </Box>
-    </ChakraProvider>
-  );
-}
+         </Box>
+         )}
+       </Box>
+     </ChakraProvider>
+   );
+ }
 
-export default App;
+ export default App;
