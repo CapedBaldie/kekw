@@ -5,7 +5,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    //origin: "http://localhost:3000",
+    origin: "https://kekw-chat-app.netlify.app/",
     methods: ["GET", "POST"]
   }
 });
@@ -27,6 +28,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(8080, () => {
+server.listen(process.env.PORT || 8080, () => {
   console.log('listening on *:8080');
 });
