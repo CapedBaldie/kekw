@@ -17,7 +17,7 @@ import MessageItem from './MessageItem';
 import socketClient  from "socket.io-client"
 
 // const SERVER = "http://127.0.0.1:8080";
-const SERVER = "https://secret-depths-28847.herokuapp.com/";
+ const SERVER = "https://secret-depths-28847.herokuapp.com/";
 
 
 export default function Chat(props) {
